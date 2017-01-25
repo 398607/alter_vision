@@ -1,19 +1,24 @@
-# - coding:gbk
-from qqbot import QQBot
-from qqbot.qconf import QConf
+import requests
 
 class AlterVision(object):
 
-	def __init__(self):
-		self.bot = QQBot()
-		# print(globals()['sampleConfStr'])
-		self.bot.Login()
+    host_url = 'http://nagizero.me:8000/alter_vision/'
+    api_start = host_url + 'start'
+    api_send = host_url + 'send'
 
+    def __init__(self):
+        r = requests.post(AlterVision.api_start)
+        print r.status_code
 
-	def vision(self, msg):
-		self.bot.Send('buddy', qq='2569375308', content=msg)
+    def vision(self, msg):
+        values = {
+            'msg': msg
+        }
+        r = requests.post(AlterVision.api_send, data=values)
+        print r.status_code
 
 if __name__ == '__main__':
-	alter = AlterVision()
-	alter.vision('test 1')
-	alter.vision('test 2')
+    alter = AlterVision()
+    alter.vision('remote test 1')
+    alter.vision('remote test 2')
+    alter.vision('remote test 3')
