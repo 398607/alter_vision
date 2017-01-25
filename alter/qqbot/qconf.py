@@ -46,7 +46,7 @@ sampleConfStr = '''{
         "mailAccount" : "2569375308@qq.com",
         "mailAuthCode" : "kxwuwgskjrhadigd",
         "debug" : False,
-        "restartOnOffline" : True,
+        "restartOnOffline" : False,
     },
 
 }
